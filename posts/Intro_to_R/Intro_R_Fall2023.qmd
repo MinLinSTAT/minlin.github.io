@@ -7,7 +7,6 @@ format:
     css: styles.css
     toc-location: left
 editor: visual
-categories: [R]
 ---
 
 ## Preparation
