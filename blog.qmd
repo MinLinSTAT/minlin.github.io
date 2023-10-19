@@ -1,5 +1,5 @@
 ---
-title: "how do you wanna call your blog?"
+title: "Posts"
 listing:
   contents: posts
   sort: "date desc"

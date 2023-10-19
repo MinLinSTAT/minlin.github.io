@@ -7,6 +7,7 @@ format:
     css: styles.css
     toc-location: left
 editor: visual
+categories: [R]
 ---
 
 ## Preparation
@@ -32,13 +33,13 @@ RStudio is an open source R integrated development environment for interfacing w
 
 > Tools -\> Global Options... -\> General
 
-![](images/RStudio1.png){width="459"}
+![](RStudio1.png){width="459"}
 
 ### Configuring RStudio
 
 > Tools -\> Global Options... -\> Pane Layout
 
-![](images/RStudio2.png){width="459"}
+![](RStudio2.png){width="459"}
 
 ### Navigating RStudio
 
@@ -174,7 +175,7 @@ x
 ```
 
 ::: callout-note
-Will see that x has been loaded in to the environment. ![](images/environment.png){width="405"}
+Will see that x has been loaded in to the environment. ![](environment.png){width="405"}
 :::
 
 ::: callout-tip
