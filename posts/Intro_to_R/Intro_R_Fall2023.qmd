@@ -32,15 +32,27 @@ RStudio is an open source R integrated development environment for interfacing w
 
 > Tools -\> Global Options... -\> General
 
-![](RStudio1.png){width="459"}
+![](RStudio1.png){width="590"}
 
-### Configuring RStudio
+## Configuring RStudio
 
 > Tools -\> Global Options... -\> Pane Layout
 
-![](RStudio2.png){width="459"}
+![](RStudio2.png){width="607"}
 
-### Navigating RStudio
+> Tools -\> Global Options... -\> Appearance
+
+![](Appearance.png)
+
+## Navigating RStudio
+
+![](RStudio3.png)
+
+-   Left: source panel (where we can write scripts)
+
+-   Top right: console window
+
+-   Bottom right: everything else
 
 There are two main ways one can work within RStudio.
 
@@ -60,9 +72,16 @@ In the console window you will see a `>` symbol, which is an **interactive comma
 -   This is a great way to start; all your code is saved for later.
 -   Can easily share code this way.
 
-## Working in Base R
+::: callout-tip
+Some shortcuts I use every single time
 
-### Using R as a calculator
+-   `Ctrl + 1`: Move Focus to Source
+-   `Ctrl + 2`: Move Focus to Console
+
+> More: Tools -\> Keyboard Shortcuts Help
+:::
+
+## Using R as a calculator
 
 Let's start programming by getting R to do some arithmetic for us. I am going to do this in the editor window.
 
@@ -70,15 +89,22 @@ Let's start programming by getting R to do some arithmetic for us. I am going to
 Hovering over the code chunk and clicking `Copy to Clipboard`, you can copy the code and have a try yourself!
 :::
 
-There are a few different ways to run commands or 'chunks' of code from the editor window, depending on the OS you are using:
+There are a few different ways to run commands or 'chunks' of code from the editor window, depending on the OS you are using.
+
+Run and move cursor down:
 
 -   Click run (all systems)
 -   `Ctrl + Enter` (Win, Linux)
 -   `Cmd + Enter` (Mac OS)
+-   `Alt + Enter` (Win, Linux)
 
 ::: callout-tip
 You can run multiple lines of code at once. You can run lines without highlighting, code will run on line with cursor
 :::
+
+Run and don't move cursor:
+
+-   `Alt + Enter` (Win, Linux)
 
 So let's start by running some code to do some addition:
 
@@ -123,7 +149,7 @@ versus
 R will ignore spaces between + and - , etc.
 :::
 
-### Mathematical functions
+## Mathematical functions
 
 R has many built in mathematical functions. To call a function, we simply type its name, followed by open and closing parentheses. For example:
 
@@ -164,7 +190,7 @@ Forget arguments? Use the help document:
 ```
 :::
 
-### Variables and assignment
+## Variables and assignment
 
 We can store values in variables using the assignment operator `<-`, which is the less than sign followed by a minus like this:
 
@@ -179,6 +205,17 @@ Will see that x has been loaded in to the environment. ![](environment.png){widt
 
 ::: callout-tip
 `Alt + -` gives `<-` in Windows
+:::
+
+::: callout-warning
+You may see someone use `=` instead of `<-`:
+
+```{r}
+x = 1/40
+x
+```
+
+But it's a bad habit! Don't use `=` to assign a variable ever.
 :::
 
 And we can now perform calculations using x in place of our original number. For example, take the natural log:
@@ -260,7 +297,7 @@ I prefer `underscores_between_words`. (reasons will be clear)
 You can overwrite variables!
 :::
 
-### Vectorization
+## Vectorization
 
 R is vectorized: variables and functions can have vectors as values. A vector in R describes a set of values in a certain order of the same data type. For example:
 
@@ -280,13 +317,13 @@ We can also perform arithmetic on multiple vectors, for example:
 
 ```{r}
 x <- 1:4
-y <-  5:8
+y <- 5:8
 x + y
 ```
 
 The vectorized nature of R is an incredibly useful feature that can often save you lots of time.
 
-### Brief note on data types
+## Brief note on data types
 
 There are 4 main of data types:
 
@@ -319,7 +356,7 @@ typeof(c("red", "organge", "blue"))
 If you combine data of different types in a vector, R will \*\*coerce\*\* them to be of the same type. It is important to keep words/characters and numbers separate!
 :::
 
-### Combining vectors into a dataframe
+## Combining vectors into a dataframe
 
 We can also combine vectors into a dataframe. Dataframes are extremely useful, and are typically how your data would be stored and worked with in R. Key to note is that each vector must be the same length.
 
@@ -331,4 +368,40 @@ cats
 
 ```
 
-## Tidyverse
+## Experiment
+
+Except built-in functions, R support external packages. When downloading R, it ships with some packages. Look up the whole list by:
+
+```{r, eval = FALSE}
+library() 
+```
+
+To download new packages, do
+
+```{r, eval = FALSE}
+install.packages("name-of-the-package")
+```
+
+To make a package at your disposal,
+
+```{r, message = FALSE}
+library(MASS)
+```
+
+We will play with a data set called `Boston` in the MASS package. Use
+
+```{r, eval = FALSE}
+?Boston
+```
+
+```{r}
+dim(Boston) # dimension (506 rows and 14 columns)
+head(Boston) # see the first 6 rows 
+colnames(Boston) # column names
+boxplot(Boston$medv) # boxplot of median house price
+boxplot(Boston$lstat) # percent of households with low socioeconomic status
+cor(Boston$medv, Boston$lstat) # Pearson correlation
+my_model <- lm(medv ~ lstat, data = Boston)
+summary(my_model)
+plot(my_model) # diagnostic plots
+```
