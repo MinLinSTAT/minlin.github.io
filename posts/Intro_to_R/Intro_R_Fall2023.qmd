@@ -9,8 +9,6 @@ format:
 editor: visual
 ---
 
-Special thanks to [Dr. Timothy E. Moore](https://statsconsulting.uconn.edu/the-consulting-team/) for most contents of this tutorial!
-
 ## Preparation
 
 ### Installing R and RStudio
