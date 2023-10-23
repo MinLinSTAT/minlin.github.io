@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.3.450" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
 
-<title>Intro to R</title>
+<title>Min Lin – Intro to R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,78 +58,144 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+<!-- htmldependencies:E3FAD763 -->
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
-<script src="Intro_R_Fall2023_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Intro_R_Fall2023_files/libs/quarto-html/quarto.js"></script>
-<script src="Intro_R_Fall2023_files/libs/quarto-html/popper.min.js"></script>
-<script src="Intro_R_Fall2023_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Intro_R_Fall2023_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Intro_R_Fall2023_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Intro_R_Fall2023_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Intro_R_Fall2023_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Intro_R_Fall2023_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Intro_R_Fall2023_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a>
-  <ul class="collapse">
-  <li><a href="#installing-r-and-rstudio" id="toc-installing-r-and-rstudio" class="nav-link" data-scroll-target="#installing-r-and-rstudio">Installing R and RStudio</a></li>
-  <li><a href="#checking-whether-rstudio-is-using-the-correct-version-or-r" id="toc-checking-whether-rstudio-is-using-the-correct-version-or-r" class="nav-link" data-scroll-target="#checking-whether-rstudio-is-using-the-correct-version-or-r">Checking whether RStudio is using the correct version or R</a></li>
-  </ul></li>
-  <li><a href="#configuring-rstudio" id="toc-configuring-rstudio" class="nav-link" data-scroll-target="#configuring-rstudio">Configuring RStudio</a></li>
-  <li><a href="#navigating-rstudio" id="toc-navigating-rstudio" class="nav-link" data-scroll-target="#navigating-rstudio">Navigating RStudio</a></li>
-  <li><a href="#using-r-as-a-calculator" id="toc-using-r-as-a-calculator" class="nav-link" data-scroll-target="#using-r-as-a-calculator">Using R as a calculator</a></li>
-  <li><a href="#mathematical-functions" id="toc-mathematical-functions" class="nav-link" data-scroll-target="#mathematical-functions">Mathematical functions</a></li>
-  <li><a href="#variables-and-assignment" id="toc-variables-and-assignment" class="nav-link" data-scroll-target="#variables-and-assignment">Variables and assignment</a></li>
-  <li><a href="#vectorization" id="toc-vectorization" class="nav-link" data-scroll-target="#vectorization">Vectorization</a></li>
-  <li><a href="#brief-note-on-data-types" id="toc-brief-note-on-data-types" class="nav-link" data-scroll-target="#brief-note-on-data-types">Brief note on data types</a></li>
-  <li><a href="#combining-vectors-into-a-dataframe" id="toc-combining-vectors-into-a-dataframe" class="nav-link" data-scroll-target="#combining-vectors-into-a-dataframe">Combining vectors into a dataframe</a></li>
-  <li><a href="#experiment" id="toc-experiment" class="nav-link" data-scroll-target="#experiment">Experiment</a></li>
-  </ul>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="/index.html">
+    <span class="navbar-title">Min Lin</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="/blog.html" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/misc.html" rel="" target="">
+ <span class="menu-text">Untitled</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i 
+  class="bi bi-github" 
+  role="img" 
+>
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i 
+  class="bi bi-twitter" 
+  role="img" 
+>
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div id="quarto-toc-target"></div>
 </nav>
-</div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-</div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" ></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Intro to R</h1>
-</div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
+<header id="title-block-header" class="quarto-title-block default toc-left">
+  <div class="quarto-title-banner">
+    <div class="quarto-title column-body">
+      <h1 class="title">Intro to R</h1>
+                      </div>
   </div>
+    
   
+  <div class="quarto-title-meta">
 
-</header>
-
-<p>Special thanks to <a href="https://statsconsulting.uconn.edu/the-consulting-team/">Dr.&nbsp;Timothy E. Moore</a> for most contents of this tutorial!</p>
+      
+    
+      
+    </div>
+    
+  
+  </header>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#preparation" id="toc-preparation">Preparation</a>
+  <ul>
+  <li><a href="#installing-r-and-rstudio" id="toc-installing-r-and-rstudio">Installing R and RStudio</a></li>
+  <li><a href="#checking-whether-rstudio-is-using-the-correct-version-or-r" id="toc-checking-whether-rstudio-is-using-the-correct-version-or-r">Checking whether RStudio is using the correct version or R</a></li>
+  </ul></li>
+  <li><a href="#configuring-rstudio" id="toc-configuring-rstudio">Configuring RStudio</a></li>
+  <li><a href="#navigating-rstudio" id="toc-navigating-rstudio">Navigating RStudio</a></li>
+  <li><a href="#using-r-as-a-calculator" id="toc-using-r-as-a-calculator">Using R as a calculator</a></li>
+  <li><a href="#mathematical-functions" id="toc-mathematical-functions">Mathematical functions</a></li>
+  <li><a href="#variables-and-assignment" id="toc-variables-and-assignment">Variables and assignment</a></li>
+  <li><a href="#vectorization" id="toc-vectorization">Vectorization</a></li>
+  <li><a href="#brief-note-on-data-types" id="toc-brief-note-on-data-types">Brief note on data types</a></li>
+  <li><a href="#combining-vectors-into-a-dataframe" id="toc-combining-vectors-into-a-dataframe">Combining vectors into a dataframe</a></li>
+  <li><a href="#experiment" id="toc-experiment">Experiment</a></li>
+  </ul>
+</nav>
+<p>Special thanks to <a href="https://statsconsulting.uconn.edu/the-consulting-team/">Dr. Timothy E. Moore</a> for most contents of this tutorial!</p>
 <section id="preparation" class="level2">
-<h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
+<h2>Preparation</h2>
 <section id="installing-r-and-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="installing-r-and-rstudio">Installing R and RStudio</h3>
+<h3>Installing R and RStudio</h3>
 <p><a href="https://posit.co/download/rstudio-desktop/">Following step 1 and 2 here to download them</a></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
@@ -147,27 +215,27 @@ Note
 </ul>
 </section>
 <section id="checking-whether-rstudio-is-using-the-correct-version-or-r" class="level3">
-<h3 class="anchored" data-anchor-id="checking-whether-rstudio-is-using-the-correct-version-or-r">Checking whether RStudio is using the correct version or R</h3>
-<blockquote class="blockquote">
+<h3>Checking whether RStudio is using the correct version or R</h3>
+<blockquote>
 <p>Tools -&gt; Global Options… -&gt; General</p>
 </blockquote>
-<p><img src="RStudio1.png" class="img-fluid" width="590"></p>
+<p><img src="RStudio1.png" class="img-fluid" width="590" /></p>
 </section>
 </section>
 <section id="configuring-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="configuring-rstudio">Configuring RStudio</h2>
-<blockquote class="blockquote">
+<h2>Configuring RStudio</h2>
+<blockquote>
 <p>Tools -&gt; Global Options… -&gt; Pane Layout</p>
 </blockquote>
-<p><img src="RStudio2.png" class="img-fluid" width="607"></p>
-<blockquote class="blockquote">
+<p><img src="RStudio2.png" class="img-fluid" width="607" /></p>
+<blockquote>
 <p>Tools -&gt; Global Options… -&gt; Appearance</p>
 </blockquote>
-<p><img src="Appearance.png" class="img-fluid"></p>
+<p><img src="Appearance.png" class="img-fluid" /></p>
 </section>
 <section id="navigating-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="navigating-rstudio">Navigating RStudio</h2>
-<p><img src="RStudio3.png" class="img-fluid"></p>
+<h2>Navigating RStudio</h2>
+<p><img src="RStudio3.png" class="img-fluid" /></p>
 <ul>
 <li><p>Left: source panel (where we can write scripts)</p></li>
 <li><p>Top right: console window</p></li>
@@ -197,7 +265,7 @@ Note
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
@@ -209,19 +277,19 @@ Tip
 <li><code>Ctrl + 1</code>: Move Focus to Source</li>
 <li><code>Ctrl + 2</code>: Move Focus to Console</li>
 </ul>
-<blockquote class="blockquote">
+<blockquote>
 <p>More: Tools -&gt; Keyboard Shortcuts Help</p>
 </blockquote>
 </div>
 </div>
 </section>
 <section id="using-r-as-a-calculator" class="level2">
-<h2 class="anchored" data-anchor-id="using-r-as-a-calculator">Using R as a calculator</h2>
+<h2>Using R as a calculator</h2>
 <p>Let’s start programming by getting R to do some arithmetic for us. I am going to do this in the editor window.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
@@ -242,7 +310,7 @@ Tip
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
@@ -258,13 +326,13 @@ Tip
 </ul>
 <p>So let’s start by running some code to do some addition:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">53</span> <span class="sc">+</span> <span class="dv">23</span> <span class="co"># [Ctrl + Enter]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">53</span> <span class="sc">+</span> <span class="dv">23</span> <span class="co"># [Ctrl + Enter]</span></span></code></pre></div>
 </div>
 <p>Remember to actually run this we hit ctrl or cmd + enter, or click the run button.</p>
 <p>The text after each line of code is called a “comment”. Anything that follows after the hash (or octothorpe) symbol # is ignored by R when it executes code.</p>
 <p>You’ll see that the line we’ve just run pops up in the console, along with the output from the command we’ve just given R. If you run an incomplete command, R will wait for you to complete it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="co"># [Ctrl + Enter]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="co"># [Ctrl + Enter]</span></span></code></pre></div>
 </div>
 <p>Note that the <code>&gt;</code> in the console window is now a + indicating that R is waiting for the command to be completed. You can exit commands by pressing escape within the console window.</p>
 <p>When using R as a calculator, the order of operations is the same as you would have learned back in school. From highest to lowest precedence:</p>
@@ -278,14 +346,14 @@ Tip
 </ul>
 <p>So for example we can try:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13</code></pre>
 </div>
 </div>
 <p>versus</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16</code></pre>
 </div>
@@ -293,7 +361,7 @@ Tip
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
@@ -305,17 +373,17 @@ Note
 </div>
 </section>
 <section id="mathematical-functions" class="level2">
-<h2 class="anchored" data-anchor-id="mathematical-functions">Mathematical functions</h2>
+<h2>Mathematical functions</h2>
 <p>R has many built in mathematical functions. To call a function, we simply type its name, followed by open and closing parentheses. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)  <span class="co"># natural logarithm</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)  <span class="co"># natural logarithm</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>) <span class="co"># base-10 logarithm</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">0.5</span>) <span class="co"># exponent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">0.5</span>) <span class="co"># exponent</span></span></code></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note on functions
@@ -331,14 +399,14 @@ Note on functions
 </div>
 <p>These mathematical functions are relatively simple and only have one or two arguments. For instance, the <code>log()</code> function take two arguments: <code>x</code> and <code>base</code>. So, when we call</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
 <p>We are actually calling:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">base =</span> <span class="fu">exp</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">base =</span> <span class="fu">exp</span>(<span class="dv">1</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -347,7 +415,7 @@ Note on functions
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
@@ -356,17 +424,17 @@ Tip
 <div class="callout-body-container callout-body">
 <p>Forget arguments? Use the help document:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>?log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>?log</span></code></pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="variables-and-assignment" class="level2">
-<h2 class="anchored" data-anchor-id="variables-and-assignment">Variables and assignment</h2>
+<h2>Variables and assignment</h2>
 <p>We can store values in variables using the assignment operator <code>&lt;-</code>, which is the less than sign followed by a minus like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.025</code></pre>
 </div>
@@ -374,20 +442,20 @@ Tip
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Will see that x has been loaded in to the environment. <img src="environment.png" class="img-fluid" width="405"></p>
+<p>Will see that x has been loaded in to the environment. <img src="environment.png" class="img-fluid" width="405" /></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Tip
@@ -400,7 +468,7 @@ Tip
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Warning
@@ -409,8 +477,8 @@ Warning
 <div class="callout-body-container callout-body">
 <p>You may see someone use <code>=</code> instead of <code>&lt;-</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">40</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.025</code></pre>
 </div>
@@ -420,19 +488,19 @@ Warning
 </div>
 <p>And we can now perform calculations using x in place of our original number. For example, take the natural log:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
 </div>
 <p>We can also reassign variables that we have created. Let make x have a value of 100:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">100</span></span></code></pre></div>
 </div>
 <p>We can also update the assigned value by including the variable we want to update. E.g.:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 </div>
 <p>and even:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 </div>
 <p>Variable names can contain letters, numbers, underscores and periods. They cannot start with a number nor contain spaces at all. Different people use different conventions for long variable names, these include:</p>
 <ul>
@@ -443,7 +511,7 @@ Warning
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Important
@@ -453,7 +521,7 @@ Important
 <p>I prefer <code>underscores_between_words</code>. (reasons will be clear)</p>
 </div>
 </div>
-<blockquote class="blockquote">
+<blockquote>
 <p>Which of the following are valid R variable names?</p>
 <ol type="1">
 <li><p>min_height</p></li>
@@ -469,12 +537,12 @@ Important
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Answer
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<div class='callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end'><i class='callout-toggle'></i></div>
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
@@ -488,20 +556,20 @@ Answer
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
+<blockquote>
 <p>What will be the value of each variable (mass and age) after each statement in the following:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mass <span class="ot">&lt;-</span> <span class="fl">47.5</span></span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mass <span class="ot">&lt;-</span> <span class="fl">47.5</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">122</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>mass <span class="ot">&lt;-</span> mass <span class="sc">*</span> <span class="fl">2.3</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> age – <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> age – <span class="dv">20</span></span></code></pre></div>
 </blockquote>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Important
@@ -513,17 +581,17 @@ Important
 </div>
 </section>
 <section id="vectorization" class="level2">
-<h2 class="anchored" data-anchor-id="vectorization">Vectorization</h2>
+<h2>Vectorization</h2>
 <p>R is vectorized: variables and functions can have vectors as values. A vector in R describes a set of values in a certain order of the same data type. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> </span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 </div>
 <p>Produces a vector of numbers. And we can perform mathematical functions on this vector:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  4  8 16 32</code></pre>
 </div>
@@ -531,9 +599,9 @@ Important
 <p>Notice that what R has done here is raise 2 to the power of each number in the vector.</p>
 <p>We can also perform arithmetic on multiple vectors, for example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">8</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  6  8 10 12</code></pre>
 </div>
@@ -541,7 +609,7 @@ Important
 <p>The vectorized nature of R is an incredibly useful feature that can often save you lots of time.</p>
 </section>
 <section id="brief-note-on-data-types" class="level2">
-<h2 class="anchored" data-anchor-id="brief-note-on-data-types">Brief note on data types</h2>
+<h2>Brief note on data types</h2>
 <p>There are 4 main of data types:</p>
 <ol type="1">
 <li><p>double</p></li>
@@ -551,16 +619,16 @@ Important
 </ol>
 <p>Some operations can only be performed on certain types of data. For example, mathematical functions typically need to be done one types double or integer. We can use the <code>typeof</code> function to identify a data type:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
 </div>
 <p>Or for a categorical vector:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"organge"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;organge&quot;</span>, <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Note
@@ -573,7 +641,7 @@ Note
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Warning
@@ -585,13 +653,13 @@ Warning
 </div>
 </section>
 <section id="combining-vectors-into-a-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="combining-vectors-into-a-dataframe">Combining vectors into a dataframe</h2>
+<h2>Combining vectors into a dataframe</h2>
 <p>We can also combine vectors into a dataframe. Dataframes are extremely useful, and are typically how your data would be stored and worked with in R. Key to note is that each vector must be the same length.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>cats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">coat =</span> <span class="fu">c</span>(<span class="st">"calico"</span>, <span class="st">"black"</span>, <span class="st">"tabby"</span>),</span>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>cats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">coat =</span> <span class="fu">c</span>(<span class="st">&quot;calico&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;tabby&quot;</span>),</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">weight =</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">5.0</span>, <span class="fl">3.2</span>),</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">likes_string =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>cats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>cats</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    coat weight likes_string
 1 calico    2.1            1
@@ -601,29 +669,29 @@ Warning
 </div>
 </section>
 <section id="experiment" class="level2">
-<h2 class="anchored" data-anchor-id="experiment">Experiment</h2>
+<h2>Experiment</h2>
 <p>Except built-in functions, R support external packages. When downloading R, it ships with some packages. Look up the whole list by:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>() </span></code></pre></div>
 </div>
 <p>To download new packages, do</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"name-of-the-package"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;name-of-the-package&quot;</span>)</span></code></pre></div>
 </div>
 <p>To make a package at your disposal,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
 </div>
 <p>We will play with a data set called <code>Boston</code> in the MASS package. Use</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>?Boston</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>?Boston</span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Boston) <span class="co"># dimension (506 rows and 14 columns)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Boston) <span class="co"># dimension (506 rows and 14 columns)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 506  14</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston) <span class="co"># see the first 6 rows </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston) <span class="co"># see the first 6 rows </span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
 1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90  4.98
@@ -640,25 +708,25 @@ Warning
 5 36.2
 6 28.7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Boston) <span class="co"># column names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Boston) <span class="co"># column names</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "crim"    "zn"      "indus"   "chas"    "nox"     "rm"      "age"    
- [8] "dis"     "rad"     "tax"     "ptratio" "black"   "lstat"   "medv"   </code></pre>
+<pre><code> [1] &quot;crim&quot;    &quot;zn&quot;      &quot;indus&quot;   &quot;chas&quot;    &quot;nox&quot;     &quot;rm&quot;      &quot;age&quot;    
+ [8] &quot;dis&quot;     &quot;rad&quot;     &quot;tax&quot;     &quot;ptratio&quot; &quot;black&quot;   &quot;lstat&quot;   &quot;medv&quot;   </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Boston<span class="sc">$</span>medv) <span class="co"># boxplot of median house price</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Boston<span class="sc">$</span>medv) <span class="co"># boxplot of median house price</span></span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672" /></p>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Boston<span class="sc">$</span>lstat) <span class="co"># percent of households with low socioeconomic status</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Boston<span class="sc">$</span>lstat) <span class="co"># percent of households with low socioeconomic status</span></span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-2.png" class="img-fluid" width="672"></p>
+<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-2.png" class="img-fluid" width="672" /></p>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Boston<span class="sc">$</span>medv, Boston<span class="sc">$</span>lstat) <span class="co"># Pearson correlation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Boston<span class="sc">$</span>medv, Boston<span class="sc">$</span>lstat) <span class="co"># Pearson correlation</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.7376627</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat, <span class="at">data =</span> Boston)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>my_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(medv <span class="sc">~</span> lstat, <span class="at">data =</span> Boston)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_model)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -673,31 +741,36 @@ Coefficients:
 (Intercept) 34.55384    0.56263   61.41   &lt;2e-16 ***
 lstat       -0.95005    0.03873  -24.53   &lt;2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 6.216 on 504 degrees of freedom
 Multiple R-squared:  0.5441,    Adjusted R-squared:  0.5432 
 F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_model) <span class="co"># diagnostic plots</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(my_model) <span class="co"># diagnostic plots</span></span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-3.png" class="img-fluid" width="672"></p>
+<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-3.png" class="img-fluid" width="672" /></p>
 </div>
 <div class="cell-output-display">
-<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-4.png" class="img-fluid" width="672"></p>
+<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-4.png" class="img-fluid" width="672" /></p>
 </div>
 <div class="cell-output-display">
-<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-5.png" class="img-fluid" width="672"></p>
+<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-5.png" class="img-fluid" width="672" /></p>
 </div>
 <div class="cell-output-display">
-<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-6.png" class="img-fluid" width="672"></p>
+<p><img src="Intro_R_Fall2023_files/figure-html/unnamed-chunk-25-6.png" class="img-fluid" width="672" /></p>
 </div>
+</div>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">Min Lin</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Min Lin</span> <span class="hidden" data-render-id="quarto-int-navbar:Posts">Posts</span> <span class="hidden" data-render-id="quarto-int-navbar:/blog.html">/blog.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Untitled">Untitled</span> <span class="hidden" data-render-id="quarto-int-navbar:/misc.html">/misc.html</span> <span class="hidden" data-render-id="quarto-int-navbar:https://github.com/">https://github.com/</span> <span class="hidden" data-render-id="quarto-int-navbar:https://twitter.com">https://twitter.com</span> <span class="hidden" data-render-id="footer-left">You can write somethig here too.</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">Min Lin - Intro to R</span> <span class="hidden" data-render-id="quarto-twittercardtitle">Min Lin - Intro to R</span> <span class="hidden" data-render-id="quarto-ogcardtitle">Min Lin - Intro to R</span> <span class="hidden" data-render-id="quarto-metasitename">Min Lin</span> <span class="hidden" data-render-id="quarto-twittercarddesc"></span> <span class="hidden" data-render-id="quarto-ogcardddesc"></span></p>
 </div>
 </section>
 
-</main>
-<!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+</main> <!-- /main -->
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -931,7 +1004,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <div class='footer-contents'>You can write somethig here too.</div>  
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
+</body>
 
-
-</body></html>
+</html>
