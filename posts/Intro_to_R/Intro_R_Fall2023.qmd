@@ -7,6 +7,7 @@ format:
     css: styles.css
     toc-location: left
 editor: visual
+image: "thumbnail.jpg"
 ---
 
 Special thanks to [Dr. Timothy E. Moore](https://statsconsulting.uconn.edu/the-consulting-team/) for most contents of this tutorial!
