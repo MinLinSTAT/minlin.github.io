@@ -319,3 +319,20 @@ ggsave(
         plot = gg
 )
 ```
+
+## **Some other plots**
+
+```{r, warning=FALSE, message=FALSE}
+# install.packages("GGally")
+library(GGally)
+penguins %>%
+  select(species, body_mass_g, ends_with("_mm")) %>% 
+  GGally::ggpairs(aes(color = species)) +
+  scale_colour_manual(values = c("darkorange","purple","cyan4")) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4")) + 
+    theme_minimal()
+```
+
+-   [Example graphs using the penguins data](https://allisonhorst.github.io/palmerpenguins/articles/examples.html)
+
+-   [The R Graph Gallery](https://r-graph-gallery.com/)

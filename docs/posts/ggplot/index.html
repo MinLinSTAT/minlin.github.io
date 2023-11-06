@@ -167,6 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#improving-the-labels-and-the-theme" id="toc-improving-the-labels-and-the-theme" class="nav-link" data-scroll-target="#improving-the-labels-and-the-theme"><strong>Improving the labels and the theme</strong></a></li>
   <li><a href="#more-customization" id="toc-more-customization" class="nav-link" data-scroll-target="#more-customization"><strong>More customization</strong></a></li>
   <li><a href="#saving-your-plot" id="toc-saving-your-plot" class="nav-link" data-scroll-target="#saving-your-plot"><strong>Saving your plot!</strong></a></li>
+  <li><a href="#some-other-plots" id="toc-some-other-plots" class="nav-link" data-scroll-target="#some-other-plots"><strong>Some other plots</strong></a></li>
   </ul>
 </nav>
 </nav>
@@ -639,6 +640,26 @@ Customize it
 <pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 </div>
+</section>
+<section id="some-other-plots" class="level2">
+<h2 class="anchored" data-anchor-id="some-other-plots"><strong>Some other plots</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("GGally")</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, body_mass_g, <span class="fu">ends_with</span>(<span class="st">"_mm"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="fu">aes</span>(<span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"purple"</span>,<span class="st">"cyan4"</span>)) <span class="sc">+</span> </span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li><p><a href="https://allisonhorst.github.io/palmerpenguins/articles/examples.html">Example graphs using the penguins data</a></p></li>
+<li><p><a href="https://r-graph-gallery.com/">The R Graph Gallery</a></p></li>
+</ul>
 
 
 </section>
