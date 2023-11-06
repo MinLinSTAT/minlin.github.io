@@ -194,5 +194,12 @@
     "title": "R Visualization",
     "section": "Some other plots",
     "text": "Some other plots\n\n# install.packages(\"GGally\")\nlibrary(GGally)\npenguins %&gt;%\n  select(species, body_mass_g, ends_with(\"_mm\")) %&gt;% \n  GGally::ggpairs(aes(color = species)) +\n  scale_colour_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  scale_fill_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) + \n    theme_minimal()\n\n\n\n\n\nExample graphs using the penguins data\nThe R Graph Gallery"
+  },
+  {
+    "objectID": "posts/ggplot/index.html#references",
+    "href": "posts/ggplot/index.html#references",
+    "title": "R Visualization",
+    "section": "References",
+    "text": "References\n\nhttps://allisonhorst.github.io/palmerpenguins/articles/intro.html\nhttps://allisonhorst.github.io/palmerpenguins/articles/examples.html\nhttps://education.rstudio.com/blog/2020/07/palmerpenguins-cran/"
   }
 ]
