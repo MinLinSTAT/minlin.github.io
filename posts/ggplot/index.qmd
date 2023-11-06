@@ -279,7 +279,7 @@ ggplot(
 
 Pick your favorite colors. You may use the name with a suffix number or use the hex of the color.
 
-```{r}
+```{r, eval=FALSE}
 "darkorange"
 "darkorange1"
 "darkorange2"
