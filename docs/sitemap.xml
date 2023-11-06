@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://<yourwebsite>.github.io/posts/ggplot/index.html</loc>
-    <lastmod>2023-11-06T10:28:54.137Z</lastmod>
-  </url>
-  <url>
-    <loc>https://<yourwebsite>.github.io/misc.html</loc>
-    <lastmod>2023-11-06T10:28:52.757Z</lastmod>
-  </url>
-  <url>
-    <loc>https://<yourwebsite>.github.io/blog.html</loc>
-    <lastmod>2023-11-06T10:28:51.263Z</lastmod>
-  </url>
-  <url>
     <loc>https://<yourwebsite>.github.io/index.html</loc>
-    <lastmod>2023-11-06T10:28:51.505Z</lastmod>
-  </url>
-  <url>
-    <loc>https://<yourwebsite>.github.io/posts/Intro_to_R/Intro_R_Fall2023.html</loc>
-    <lastmod>2023-11-06T10:28:53.534Z</lastmod>
+    <lastmod>2023-11-06T10:44:15.220Z</lastmod>
   </url>
 </urlset>

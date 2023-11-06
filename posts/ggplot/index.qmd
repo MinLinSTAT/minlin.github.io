@@ -10,6 +10,27 @@ editor: visual
 image: "finalplot.png"
 ---
 
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+# Boxplot in base R
+boxplot(mpg ~ gear, data = mtcars, main = "Base R Boxplot", xlab = "Gear", ylab = "Miles per Gallon")
+# Boxplot using ggplot2
+library(ggplot2)
+ggplot(data = mtcars, aes(x = factor(gear), y = mpg)) +
+  geom_boxplot(
+    fill = "lightblue",
+    color = "darkblue",
+    outlier.color = "red",
+    outlier.shape = 16,
+    width = 0.6,
+    position = position_dodge(width = 0.75)
+  ) +
+  geom_jitter(aes(color = factor(gear)), width = 0.2, alpha = 0.6) +
+  geom_violin(fill = "lightgray", alpha = 0.5) +
+  labs(title = "ggplot2 Boxplot", x = "Gear", y = "Miles per Gallon") +
+  scale_color_discrete(guide = guide_legend(title = "Gear")) +
+  theme_bw()
+```
+
 ## **Preparation**
 
 Make sure you have R version 4.3.0+ and RStudio installed.
