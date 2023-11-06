@@ -1,0 +1,299 @@
+---
+title: "R Visualization"
+format: 
+  html:
+    toc: true
+    html-math-method: katex
+    css: styles.css
+    toc-location: left
+editor: visual
+---
+
+## **Preparation**
+
+Make sure you have R version 4.3.0+ and RStudio installed.
+
+```{r}
+version$version.string
+```
+
+Install `tidyverse` and `palmerpenguins` if you haven't done so:
+
+```{r, eval = FALSE}
+install.packages("tidyverse")
+install.packages("palmerpenguins")
+```
+
+[![](tidyverse.png)](https://www.tidyverse.org/)
+
+[![](palmerpenguins.png){fig-align="center" width="153"}](https://allisonhorst.github.io/palmerpenguins/index.html)
+
+You only need to install a package once, but you need to load it every time you start a new session. Load `tidyverse` and `palmerpenguins`:
+
+```{r}
+library(tidyverse)
+library(palmerpenguins) # will use the data set
+```
+
+## **Data exploration loop**
+
+[![](data-science-explore.png)](https://r4ds.had.co.nz/explore-intro.html)
+
+Our ultimate goal in this workshop is to recreate the following visualization displaying the relationship between flipper lengths and bill lengths of penguins, taking into consideration the species of the penguin.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+final <- ggplot(data = penguins,
+                         aes(x = flipper_length_mm,
+                             y = bill_length_mm,
+                             color = species,
+                             shape = species)) +
+  geom_point(size = 3, alpha = 0.8) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(title = "Flipper and bill length",
+       subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Flipper length (mm)",
+       y = "Bill length (mm)",
+       color = "Penguin species",
+       shape = "Penguin species") +
+        theme_bw()
+final
+```
+
+## **The penguins**
+
+The `palmerpenguins` data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica.
+
+![](gorman-penguins.jpg){fig-align="center" width="663"}
+
+![](antarctica-map.png){fig-align="center"}
+
+```{r}
+penguins
+```
+
+Let's `glimpse` the columns:
+
+```{r}
+glimpse(penguins)
+```
+
+Among the variables in `penguins` are:
+
+1.  `species`: a factor denoting penguin species (Adelie, Chinstrap, or Gentoo)
+
+2.  `bill_length_mm`: a number denoting bill length (millimeters)
+
+3.  `flipper_length_mm`: an integer denoting flipper length (millimeters)
+
+![](culmen_depth.png){fig-align="center"}
+
+To learn more about `penguins`, open its help page by running [`?penguins`](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html).
+
+## **Creating a ggplot**
+
+`ggplot2` is a package in the `tidyverse` family. The "**gg**" in the name means "grammar of graphics" -- a scheme for data visualization which breaks up graphs into semantic components. Since we have loaded `tidyverse`, we don't need to load `ggplot2` again.
+
+Let's begin a plot with the function `ggplot()`, defining a plot object that we then add **layers** to. The first argument of `ggplot()` is the dataset to use in the graph and so `ggplot(data = penguins)` creates an empty graph that is primed to display the `penguin` data. We create an empty canvas that we'll paint the remaining layers of the plot onto.
+
+```{r}
+ggplot(data = penguins)
+```
+
+Next, we need to tell `ggplot()` how the information from our data will be visuallyv represented. The `mapping` argument of the `ggplot()` function defines how variables in the dataset are mapped to visual properties (**aesthetics**) of the plot.
+
+```{r}
+ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm)
+)
+```
+
+But where are the penguins??? We have not yet articulated, in our code, how to represent the observations from our data frame on our plot.
+
+To do so, we need to define a **geom**: the geometrical object that a plot uses to represent data. Use the symbol `+` to connect the canvas `ggplot()` and the geometrical object `geom_point()`. We get a scatterplot:
+
+```{r}
+ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm)
+) + geom_point()
+```
+
+## **Adding regression lines**
+
+Use `geom_smooth()` to add a layer of smooth curve. Specify `method = "lm"` to fit a linear model.
+
+```{r}
+ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm)
+) + geom_point() + 
+        geom_smooth(method = "lm")
+```
+
+What does the relationship between flipper length and bill length look like?
+
+1.  As flipper length increases, so does bill length
+
+2.  There seems to be **three clusters**
+
+    Recall we have three species!
+
+::: callout-note
+## Scientific hypothesis
+
+The relationship between flipper length and bill length differ by species.
+:::
+
+## **Factor and color**
+
+Factors are used for categorical variables, variables that have a fixed and known set of possible values.
+
+```{r}
+class(penguins$species)
+levels(penguins$species)
+```
+
+We have used the x-axis to represent the flipper length and the y-axis to represent the bill length. How can we represent another variable on a canvas? The z-axis?
+
+::: callout-tip
+We can use different colors for different categories!
+:::
+
+```{r}
+ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm, color = species)
+) +
+        geom_point() + 
+        geom_smooth(method = "lm")
+```
+
+Hooray!
+
+When a categorical variable (factor) is mapped to an aesthetic, ggplot will automatically assign a unique value of the aesthetic (here a unique color) to each unique level of the variable (each of the three species), a process known as **scaling**.
+
+Instead of only one regression line, now we get three, each with corresponding color. The legend has been automatically updated too.
+
+## **Changing shapes**
+
+It\'s generally not a good idea to represent information using only colors on a plot, as people perceive colors differently due to color blindness or other color vision differences. Therefore, in addition to color, we can also map `species` to the `shape` aesthetic.
+
+```{r}
+ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm, 
+                      color = species, shape = species)
+) +
+        geom_point() + 
+        geom_smooth(method = "lm")
+```
+
+## **Improving the labels and the theme**
+
+Use the `labs()` function in a new layer. The default canvas theme is not the best, and we'd better replace it.
+
+```{r}
+ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm, 
+                      color = species, shape = species)
+) +
+        geom_point() + 
+        geom_smooth(method = "lm") + 
+        labs(
+                title = "Flipper and bill length",
+                subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+                x = "Flipper length (mm)",
+                y = "Bill length (mm)",
+                color = "Penguin species",
+                shape = "Penguin species"
+        ) + 
+        theme_bw()
+```
+
+::: callout-caution
+## Customize it
+
+Type `theme_` and wait for auto-completion suggestions. Pick your favorite theme.
+:::
+
+## **More customization**
+
+Use `scale_color_manual()` to specify colors manually. The values will be matched in order of the factor `species`, which is ordered alphabetically.
+
+::: callout-note
+## Recall\...
+
+When a categorical variable (factor) is mapped to an aesthetic, ggplot will automatically assign a unique value of the aesthetic (here a unique color) to each unique level of the variable (each of the three species), a process known as **scaling**.
+:::
+
+![](penguins.png){fig-align="center" width="421"}
+
+`geom_point(size = 3, alpha = 0.8)` adjusts the size and the transparency of points.
+
+```{r}
+ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm, 
+                      color = species, shape = species)
+) +
+        geom_point(size = 3, alpha = 0.8) + 
+        geom_smooth(method = "lm") + 
+        labs(
+                title = "Flipper and bill length",
+                subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+                x = "Flipper length (mm)",
+                y = "Bill length (mm)",
+                color = "Penguin species",
+                shape = "Penguin species"
+        ) + 
+        theme_bw() + 
+        scale_color_manual(values = c("darkorange","purple","cyan4")) 
+```
+
+::: callout-caution
+## Customize it
+
+Pick your favorite colors. You may use the name with a suffix number or use the hex of the color.
+
+```{r}
+"darkorange"
+"darkorange1"
+"darkorange2"
+"darkorange3"
+"darkorange4"
+"#ff4e02"
+```
+:::
+
+## **Saving your plot!**
+
+First, save your painting in a variable called `gg`:
+
+```{r}
+gg <- ggplot(
+        data = penguins,
+        mapping = aes(x = flipper_length_mm, y = bill_length_mm, 
+                      color = species, shape = species)
+) +
+        geom_point(size = 3, alpha = 0.8) + 
+        geom_smooth(method = "lm") + 
+        labs(
+                title = "Flipper and bill length",
+                subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+                x = "Flipper length (mm)",
+                y = "Bill length (mm)",
+                color = "Penguin species",
+                shape = "Penguin species"
+        ) + 
+        theme_bw() + 
+        scale_color_manual(values = c("darkorange","purple","cyan4")) 
+```
+
+```{r}
+ggsave(
+        filename = "my_ggplot.png",
+        plot = gg
+)
+```
