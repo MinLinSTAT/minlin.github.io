@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://<yourwebsite>.github.io/blog.html</loc>
-    <lastmod>2023-11-06T10:53:03.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://<yourwebsite>.github.io/posts/ggplot/index.html</loc>
-    <lastmod>2023-11-06T10:53:02.847Z</lastmod>
+    <loc>https://<yourwebsite>.github.io/posts/TMC/TMC.html</loc>
+    <lastmod>2023-11-30T02:03:49.910Z</lastmod>
   </url>
 </urlset>

@@ -102,7 +102,7 @@
     "href": "blog.html",
     "title": "Posts",
     "section": "",
-    "text": "Intro to R\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nR Visualization\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Intro to R\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nMy slides on Transport Monte Carlo\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nR Visualization\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -194,5 +194,19 @@
     "title": "R Visualization",
     "section": "Some other plots",
     "text": "Some other plots\n\n# install.packages(\"GGally\")\nlibrary(GGally)\npenguins %&gt;%\n  select(species, body_mass_g, ends_with(\"_mm\")) %&gt;% \n  GGally::ggpairs(aes(color = species)) +\n  scale_colour_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) +\n  scale_fill_manual(values = c(\"darkorange\",\"purple\",\"cyan4\")) + \n    theme_minimal()\n\n\n\n\n\nExample graphs using the penguins data\nThe R Graph Gallery"
+  },
+  {
+    "objectID": "posts/TMC/TMC.html",
+    "href": "posts/TMC/TMC.html",
+    "title": "My slides on Transport Monte Carlo",
+    "section": "",
+    "text": "Duan, L. L. (2023), \"Transport Monte Carlo: High-Accuracy Posterior Approximation via Random Transport,\" Journal of the American Statistical Association, 118, 1659–1670. https://doi.org/10.1080/01621459.2021.2003201."
+  },
+  {
+    "objectID": "posts/TMC/TMC.html#transport-monte-carlo",
+    "href": "posts/TMC/TMC.html#transport-monte-carlo",
+    "title": "My slides on Transport Monte Carlo",
+    "section": "",
+    "text": "Duan, L. L. (2023), \"Transport Monte Carlo: High-Accuracy Posterior Approximation via Random Transport,\" Journal of the American Statistical Association, 118, 1659–1670. https://doi.org/10.1080/01621459.2021.2003201."
   }
 ]

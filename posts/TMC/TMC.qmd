@@ -1,0 +1,13 @@
+---
+title: "My slides on Transport Monte Carlo"
+format: html
+editor: visual
+---
+
+## Transport Monte Carlo
+
+```{=html}
+<iframe src="https://onedrive.live.com/embed?resid=9EC37431CEF2683C%21235377&authkey=!AL9ljIInsHoJruQ&em=2" width="804" height="654" frameborder="0" scrolling="no"></iframe>
+```
+
+Duan, L. L. (2023), \"Transport Monte Carlo: High-Accuracy Posterior Approximation via Random Transport,\" *Journal of the American Statistical Association*, 118, 1659--1670. <https://doi.org/10.1080/01621459.2021.2003201>.
